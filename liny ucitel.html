@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="text">Zadej jméno žáka</h1>
+    <input type="text" id="textInput">
+    
+</body>
+<script>
+    const emojis = {
+      [1] : "🤩",
+      [2] : "🙂",
+      [3] : "🤨",
+      [4] : "😥",
+      [5] : "🗑️"
+    }
+    const textInput = document.getElementById('textInput');
+    const text = document.getElementById("text")
+    textInput.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        let rand = Math.floor(Math.random() * 5) + 1
+        text.textContent = (textInput.value + " dostává známku "+rand + " "+emojis[rand])
+        let hue = 1/(rand) * (110)
+        document.body.style.backgroundColor =  `hsl(${hue},100%,50%)`
+        
+      }
+    });
+</script>
+</html>
